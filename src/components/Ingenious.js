@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import vector from "../assets/Vector.svg";
+import VectorDown from "../assets/VectorDown.svg";
 
 const Ingenious = () => {
   const [isOpen, setIsOpen] = useState({
@@ -22,7 +23,7 @@ const Ingenious = () => {
         toggleRefs[button].current &&
         !toggleRefs[button].current.contains(event.target)
       ) {
-        setIsOpen(prevState => ({ ...prevState, [button]: false }));
+        setIsOpen((prevState) => ({ ...prevState, [button]: false }));
       }
     };
     const addClickOutsideListeners = (button) => {
@@ -41,104 +42,137 @@ const Ingenious = () => {
   }, []);
 
   const handleToggle = (button) => {
-    setIsOpen(prevState => ({ ...prevState, [button]: !prevState[button] }));
+    setIsOpen((prevState) => ({ ...prevState, [button]: !prevState[button] }));
   };
 
   return (
     <div>
       {/* Ingenious */}
       <div>
-        <h1 className=" font-medium text-xl text-[#656565] ml-3 mb-3">Ingenious</h1>
+        <h1 className=" font-medium text-xl text-[#656565] ml-3 mb-3">
+          Ingenious
+        </h1>
         <div className="relative">
-          <button
-            style={styles.ingenious}
-            ref={toggleRefs.button1}
-            onClick={() => handleToggle("button1")}
-          >
-            <h2>♟️ Developer</h2>
-            <img src={vector} alt=""></img>
-          </button>
-
-          {isOpen.button1 && (
-            <>
-              {/* <button
-                className="inline-flex gap-x-9 items-center justify-between px-4 py-2 text-sm font-medium"
-                onClick={toggleDropdown1}
+          {isOpen.button1 ? (
+            <div style={styles.dropdown}>
+              <button
+                style={styles.ingenious}
+                ref={toggleRefs.button1}
+                onClick={() => handleToggle("button1")}
               >
                 <h2>♟️ Developer</h2>
-                <img src={vector} alt=""></img>
-              </button> */}
-              <div style={styles.dropdown} ref={toggleRefs.button1Content}>
-                <div className="py-1 flex flex-col">
+                <img src={VectorDown} alt=""></img>
+              </button>
+              <div ref={toggleRefs.button1Content}>
+                <div className="py-1 px-8 flex flex-col">
                   <h1>Option 1</h1>
                   <h1>Option 2</h1>
                   <h1>Option 3</h1>
                 </div>
               </div>
-            </>
+            </div>
+          ) : (
+            <button
+              style={styles.ingenious}
+              ref={toggleRefs.button1}
+              onClick={() => handleToggle("button1")}
+            >
+              <h2>♟️ Developer</h2>
+              <img src={vector} alt=""></img>
+            </button>
           )}
         </div>
 
         <div className="relative">
-          <button
-            style={styles.ingenious}
-            ref={toggleRefs.button2}
-            onClick={() => handleToggle("button2")}
-          >
-            <h2>🌳 Design</h2>
-            <img src={vector} alt=""></img>
-          </button>
-
-          {isOpen.button2 && (
+          {isOpen.button2 ? (
             <div style={styles.dropdown}>
-              <div className="py-1 flex flex-col">
-                <h1>Option 1</h1>
-                <h1>Option 2</h1>
-                <h1>Option 3</h1>
+              <button
+                style={styles.ingenious}
+                ref={toggleRefs.button2}
+                onClick={() => handleToggle("button2")}
+              >
+                <h2>🌳 Design</h2>
+                <img src={VectorDown} alt=""></img>
+              </button>
+              <div>
+                <div className="py-1 px-8 flex flex-col">
+                  <h1>Option 1</h1>
+                  <h1>Option 2</h1>
+                  <h1>Option 3</h1>
+                </div>
               </div>
             </div>
+          ) : (
+            <button
+              style={styles.ingenious}
+              ref={toggleRefs.button2}
+              onClick={() => handleToggle("button2")}
+            >
+              <h2>🌳 Design</h2>
+              <img src={vector} alt=""></img>
+            </button>
           )}
         </div>
 
         <div className="relative">
-          <button
-            style={styles.ingenious}
-            ref={toggleRefs.button3}
-            onClick={() => handleToggle("button3")}
-          >
-            <h2>📝 Content</h2>
-            <img src={vector} alt=""></img>
-          </button>
-
-          {isOpen.button3 && (
+          {isOpen.button3 ? (
             <div style={styles.dropdown}>
-              <div className="py-1 flex flex-col">
-                <h1>Option 1</h1>
-                <h1>Option 2</h1>
-                <h1>Option 3</h1>
+              <button
+                style={styles.ingenious}
+                ref={toggleRefs.button3}
+                onClick={() => handleToggle("button3")}
+              >
+                <h2>📝 Content</h2>
+                <img src={VectorDown} alt=""></img>
+              </button>
+              <div>
+                <div className="py-1 px-8 flex flex-col">
+                  <h1>Option 1</h1>
+                  <h1>Option 2</h1>
+                  <h1>Option 3</h1>
+                </div>
               </div>
             </div>
+          ) : (
+            <button
+              style={styles.ingenious}
+              ref={toggleRefs.button3}
+              onClick={() => handleToggle("button3")}
+            >
+              <h2>📝 Content</h2>
+              <img src={vector} alt=""></img>
+            </button>
           )}
         </div>
 
         <div className="relative">
-          <button
-            style={styles.ingenious}
-            ref={toggleRefs.button4}
-            onClick={() => handleToggle("button4")}
-          >
-            <h2>⚙️ AI research</h2>
-            <img src={vector} alt=""></img>
-          </button>
-
-          {isOpen.button4 && (
+          {isOpen.button4 ? (
             <div style={styles.dropdown}>
-              <div className="py-1 flex flex-col">
-                <h1>Option 1</h1>
-                <h1>Option 2</h1>
-                <h1>Option 3</h1>
+              <button
+                style={styles.ingenious}
+                ref={toggleRefs.button4}
+                onClick={() => handleToggle("button4")}
+              >
+                <h2>⚙️ AI research</h2>
+                <img src={VectorDown} alt=""></img>
+              </button>
+              <div>
+                <div className="px-8 flex flex-col">
+                  <h1>Option 1</h1>
+                  <h1>Option 2</h1>
+                  <h1>Option 3</h1>
+                </div>
               </div>
             </div>
+          ) : (
+            <button
+              style={styles.ingenious}
+              ref={toggleRefs.button4}
+              onClick={() => handleToggle("button4")}
+            >
+              <h2>⚙️ AI research</h2>
+              <img src={vector} alt=""></img>
+            </button>
           )}
         </div>
       </div>
@@ -149,16 +183,16 @@ const Ingenious = () => {
 const styles = {
   dropdown: {
     height: "auto",
-    width: "216px",
+    width: "210px",
     backgroundColor: "#FFFFFF99",
-    padding: " 10px 16px",
+    paddingBottom: "5px",
     borderRadius: "20px",
     position: "relative",
     zIndex: 30,
   },
   ingenious: {
     display: "inline-flex",
-    width: "216px",
+    width: "200px",
     alignItems: "baseline",
     justifyContent: "space-between",
     padding: "8px 16px",
